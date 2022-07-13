@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "types": ["node", "node-telegram-bot-api"],
+    "esModuleInterop": false,
+    "rootDir": "src",
+    "baseUrl": "./src",
+    "importHelpers": true,
+    "moduleResolution": "Node",
+    "target": "ESNext",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "exclude": ["node_modules"],
+  "include": ["**/*.ts"]
+}
