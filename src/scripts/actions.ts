@@ -72,6 +72,7 @@ export const onAdd: CommandCallback = async (msg, bot, done) => {
           bot.removeListener('message', handleMsg);
           done();
         } catch (e) {
+          console.log(e.response);
           if (e.response.status === 456) {
             await bot.sendSticker(msg.chat.id, constants.STICKER.SHOCK);
             await bot.sendMessage(
@@ -171,6 +172,7 @@ export const onRemove: CommandCallback = async (msg, bot, done) => {
       if (msg.text.toLowerCase() === 'exit') {
         bot.removeListener('message', handleMsg);
         done();
+        return;
       }
 
       const number = Number(msg.text);
