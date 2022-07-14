@@ -5,7 +5,7 @@ import * as TB from 'node-telegram-bot-api';
 import 'dotenv/config';
 import { constants } from '@/constants';
 import Commands from '@/scripts/commands';
-import { onAdd, onStart } from '@/scripts/actions';
+import { onAdd, onList, onRemove, onStart } from '@/scripts/actions';
 
 if (!process.env.TOKEN) {
   console.error('No env TOKEN');
@@ -39,4 +39,6 @@ const bot: TB = new TelegramBot(token, { polling: true });
 new Commands(bot, [
   ['/start', onStart],
   ['/add', onAdd],
+  ['/list', onList],
+  ['/remove', onRemove],
 ]).listen();
