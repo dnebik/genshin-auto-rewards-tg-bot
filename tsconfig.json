@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "types": ["node", "node-telegram-bot-api"],
+    "types": ["node", "node-telegram-bot-api", "express"],
     "esModuleInterop": false,
     "rootDir": "src",
     "baseUrl": "./src",
