@@ -2,6 +2,7 @@ import 'dotenv/config';
 import Commands from '@/scripts/classes/Commands';
 import { onAdd, onList, onRemove, onStart } from '@/scripts/actions';
 import { bot, initCommands } from '@/scripts/bot';
+import { runApi } from '@/scripts/api';
 
 if (!process.env.TOKEN) {
   console.error('No env TOKEN');
@@ -14,6 +15,7 @@ if (!process.env.API_URL) {
 
 (async function () {
   await initCommands();
+  runApi();
 
   // bot.on('message', async (msg) => {
   //   console.log(msg);
