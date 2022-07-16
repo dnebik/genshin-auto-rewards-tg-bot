@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-app.post('/send', (req, res, next) => {
+app.post('/send', async (req, res, next) => {
   const message: InitializeMessage[] | InitializeMessage = req.body.message;
   const chatId: number = req.body.chatId;
   if (!message || typeof chatId !== 'number') {
@@ -21,7 +21,9 @@ app.post('/send', (req, res, next) => {
       .status(400)
       .send('need message as [string, string] and chatId as number');
   } else {
-    sendMessage(chatId, message).catch(() => {});
+    sendMessage(chatId, message)
+      .catch(() => {})
+      .finally(() => res.send('ok'));
   }
 });
 
