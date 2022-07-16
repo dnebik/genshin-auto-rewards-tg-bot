@@ -122,7 +122,9 @@ export const onList: CommandCallback = async (msg, bot, done) => {
     const entriesData = Object.entries(data);
     entriesData.forEach(
       ([id, nickname]) =>
-        (result += `<pre>uid: ${id}     nickname: ${nickname}</pre>\n`)
+        (result += `<pre>uid: ${id}     ${
+          nickname ? `nickname: ${nickname}` : 'Нет доступа'
+        }</pre>\n`)
     );
 
     const text = entriesData.length
@@ -152,9 +154,9 @@ export const onRemove: CommandCallback = async (msg, bot, done) => {
     const entriesData = Object.entries(data);
     entriesData.forEach(
       ([id, nickname], index) =>
-        (result += `<pre>№${
-          index + 1
-        }  uid: ${id}     nickname: ${nickname}</pre>\n`)
+        (result += `<pre>№${index + 1}  uid: ${id}     ${
+          nickname ? `nickname: ${nickname}` : 'Нет доступа'
+        }</pre>\n`)
     );
     const text = entriesData.length
       ? `Напиши номер того аккаунта, который хочешь удалить: \n${result} \nЕсли передумал напиши <b>exit</b>.`
