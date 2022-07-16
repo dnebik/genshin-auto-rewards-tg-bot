@@ -15,6 +15,10 @@ if (!process.env.API_URL) {
 (async function () {
   await initCommands();
 
+  // bot.on('message', async (msg) => {
+  //   console.log(msg);
+  // });
+
   new Commands(bot, [
     ['/start', onStart],
     ['/add', onAdd],
@@ -22,7 +26,3 @@ if (!process.env.API_URL) {
     ['/remove', onRemove],
   ]).listen();
 })();
-
-// bot.on('message', async (msg) => {
-//   console.log(msg);
-// });
